@@ -7,6 +7,8 @@ public class GamblingSimulator {
     public static final int betPerGame = 1;
     public static final int win = 1;
     public static int stake = 0;
+    static int daysWonCount = 0;
+    static int daysLostCount = 0;
     public static void winCheck() {
         Random random = new Random();
         int betReturns = random.nextInt(2);
@@ -34,7 +36,14 @@ public class GamblingSimulator {
         for (day = 1; day <= 20; day++) {
             System.out.println("day " + day);
             resignDayCheck();
+            if (stake == 50) {
+                daysWonCount++;
+            } else if (stake == -50) {
+                daysLostCount++;
+            }
         }
+        System.out.printf("days won for a month = " +daysWonCount+ "\ndays lost for a month = " +daysLostCount);
+
     }
 
 
