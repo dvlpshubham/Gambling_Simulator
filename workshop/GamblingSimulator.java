@@ -1,14 +1,29 @@
 package workshop;
 
-public class GamblingSimulator {
+import java.util.Random;
 
-    public static void main(String[] args) {
-        int stake = 100;
-        int bet =  1;
-        System.out.println("Welcome To Gambling Simulator");
-        System.out.println("Gambler start with stake of $" + stake + " every day");
-        System.out.println("Gambler bet for $" + bet + " every game");
+public class GamblingSimulator {
+    public static void winCheck() {
+        int stakePerDay = 100;
+        int betPerGame = 1;
+        int win = 1;
+        int stake = 0;
+        Random random = new Random();
+        int betReturns = random.nextInt(2);
+        if (betReturns == win) {
+            stake++;
+            System.out.println("win");
+        } else {
+            stake--;
+            System.out.println("loss");
+        }
+        System.out.println("stake = " + stake);
+
     }
 
+    public static void main(String[] args) {
+        System.out.println("Welcome to Gambling Simulation");
+        winCheck();
+    }
 
 }
